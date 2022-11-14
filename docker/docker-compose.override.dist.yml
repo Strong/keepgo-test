@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  traefik-local-network:
+    external: true
+
+services:
+
+  ### nginx #####################################################
+  nginx:
+    networks:
+      - traefik-local-network
+    labels:
+      traefik.enable: 'true'
+      traefik.http.routers.keepgo_test.rule: 'Host(`keepgo-test.localhost`)'

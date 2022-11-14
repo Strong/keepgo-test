@@ -15,6 +15,8 @@ final class AccountNotificationService
                 'name' => $account->name,
             ]);
 
+            \Log::debug('Dispatch send sms job for account: '.$account->id.', phone: '.$simCard->phone);
+
             SendSmsJob::dispatch(
                 $simCard->phone,
                 $textCompiled,

@@ -41,5 +41,7 @@ final class SendSmsJob implements ShouldQueue
             $this->phone,
             $this->text,
         );
+
+        \Log::debug('Send sms to phone: '.$this->phone.' with text: '.$this->text);
     }
 }
